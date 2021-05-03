@@ -4,7 +4,7 @@ games = [
         'title': 'CUSA06638',
         'version': '0100',
         'check': [
-            { 'offset': 0x10CAE67, 'value': b'CUSA06638' },
+            { 'offset': 0x10CAE97, 'value': b'CUSA06638' },
         ],
         'path': 'xdelta/CUSA06638_0100/',
         'patches': [
