@@ -71,11 +71,12 @@ Done
 
 ### Persona 5 (PS4)
 
-Tested on CUSA06638 (EU v1.00). Requires a custom v1.01 patch (see below).
+Tested on CUSA06638 (EU) v1.00. Requires a custom v1.01 patch (see below).
 
 - *Content Enabler* - Enables on-disc content
 - *Intro Skip* - Skips boot logos and intro movie
-- *Mod Support* - File replacement via a `mod.cpk` file
+- *Mod Support* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
+- *Mod Support Alt* - File replacement via a `mod.cpk` file (placed in `/data/p5/`)
 - *Disable Trophies* - Prevents the game from unlocking trophies
 - *Global Square Menu* - Enables the square menu globally (e.g. in Velvet Room or during events or game sections which disable it)
 - *ENV Tests* - Maps all `env/env*.ENV` to `env/env0000_000_000.ENV`
@@ -85,12 +86,13 @@ Tested on CUSA06638 (EU v1.00). Requires a custom v1.01 patch (see below).
 
 ### Persona 5 Royal
 
-Tested on CUSA17416 (US v1.02).
+Tested on CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02.
 
 - *PS4 FW 5.05 Backport*
 - *Content Enabler* - Enables on-disc content
 - *Intro Skip* - Skips boot logos and intro movie (can still be viewed in Thieves Den)
-- *Mod Support* - File replacement via a `mod.cpk` file
+- *Mod Support* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
+- *Mod Support Alt* - File replacement via a `mod.cpk` file (placed in `/data/p5r/`)
 - *Disable Trophies* - Prevents the game from unlocking trophies
 - *P5 Save Bonus Enabler* - Enables P5 save bonus without P5 saves present on system
 - *Global Square Menu* - Enables the square menu globally (e.g. in Thieves Den and in Velvet Room or during events or game sections which disable it)

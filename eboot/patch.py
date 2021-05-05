@@ -6,32 +6,32 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True
 
-from xdelta.conf import games
+from xdelta.conf import games, patches
 
 def read_at(f, o, c):
     f.seek(o, 0)
     return f.read(c)
 
+def detect_xdelta():
+    try:
+        rc = subprocess.run("xdelta -V", stderr=subprocess.DEVNULL)
+        return True
+    except FileNotFoundError:
+        return False
+
+def detect_format(path):
+    with open(path, 'rb') as eboot:
+        return eboot.read(4) == b"\x7FELF"
+
 def detect_game(path):
     with open(path, 'rb') as eboot:
-        if eboot.read(4) != b"\x7FELF":
-            print("input not in ELF format")
-            return
-
         for g in games:
             ok = True
             for c in g['check']:
                 ok &= read_at(eboot, c['offset'], len(c['value'])) == c['value']
             if ok:
-                print(f"Found {g['name']} {g['title']} {g['version']}\n")
                 return g
-
-    print("Unsupported game or game version")
-    exit(1)
-
-def apply_patches(path_in, path_out, apply):
-    subprocess.run(f"xdelta -vfn merge {' '.join(apply)} ./tmp.xdelta")
-    subprocess.run(f"xdelta -vfn -d -s {path_in} ./tmp.xdelta {path_out}")
+        return None
 
 def parse_args(args):
     parser = argparse.ArgumentParser()
@@ -40,28 +40,42 @@ def parse_args(args):
     parser.add_argument('--patch', help="patch ids to apply", nargs='+')
     return parser.parse_args(args)
 
-def check_xdelta():
-    try:
-        rc = subprocess.run("xdelta -V", stderr=subprocess.DEVNULL)
-    except FileNotFoundError:
-        print("xdelta not in path")
-        exit(1)
+def apply_patches(path_in, path_out, apply):
+    subprocess.run(f"xdelta -vfn merge {' '.join(apply)} ./tmp.xdelta")
+    subprocess.run(f"xdelta -vfn -d -s {path_in} ./tmp.xdelta {path_out}")
 
 def main():
-    check_xdelta()
-    args = parse_args(sys.argv[1:])
+    # check for prereqs
+    if not detect_xdelta():
+        print("xdelta not in path\n")
+        exit(1)
 
+    # parse args
+    args = parse_args(sys.argv[1:])
     path_in = Path(args.path_in)
 
-    # check if supported
-    g = detect_game(path_in)
+    # check for elf
+    if not detect_format(args.path_in):
+        print("Input not in ELF format\n")
+        exit(1)
 
-    # print available patches if not patch input is given
+    # check if supported
+    game = detect_game(path_in)
+    if not game:
+        print("Unsupported game or game version\n")
+        exit(1)
+    print(f"Found {game['name']} {game['title']} {game['version']}\n")
+
+    # collect available patches
+    game_patches = {p['id'] : p for p in patches
+        if game['title'] in p['games'] and game['version'] in p['games'][game['title']]}
+
+    # print available patches if no patch input is given
     if not args.patch:
         print("Available patches:")
-        w = max([len(x['id']) for x in g['patches']])
-        for p in g['patches']:
-            print(f"  {p['id']:{w + 2}} {p['name']}")
+        w = max([len(gp) for gp in game_patches])
+        for gp in game_patches:
+            print(f"  {gp:{w + 2}} {game_patches[gp]['name']}")
         print("")
         exit(0)
 
@@ -70,24 +84,22 @@ def main():
     if args.path_out:
         path_out = Path(args.path_out)
     if path_in == path_out:
-        print("Output path can't be identical to input path")
+        print("Output path can't be identical to input path\n")
         exit(1)
 
     # generate patch apply list and apply
-    pids = [ x['id'] for x in g['patches'] ]
-    path = Path(g['path'])
     apply = []
     apply_pids = []
     for pid in args.patch:
-        if pid not in pids:
+        if pid not in game_patches:
             print(f"Unknown patch id {pid}, skipping...")
             continue
-        patch_path = path / f"{pid}.xdelta"
+        patch_path = Path("xdelta") / game_patches[pid]['path']
         if not patch_path.is_file():
             print(f"Patch file for id {pid} not found, skipping...")
             continue
-        apply_pids.append(pid)
         apply.append(patch_path.absolute().as_posix())
+        apply_pids.append(pid)
 
     if not len(apply):
         print("No patches to apply\n")
@@ -98,7 +110,8 @@ def main():
 
     print("Applying patches...\n")
     apply_patches(path_in, path_out, apply)
-    print(f"\nApplied {' '.join(apply_pids)}")
+    print("")
+    print(f"Applied {' '.join(apply_pids)}")
     print("Done\n")
 
 if __name__ == '__main__':
