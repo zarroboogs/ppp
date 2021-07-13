@@ -88,6 +88,12 @@ patches = [
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
+        'path': 'CUSA17416_0102/dlc_msg.xdelta',
+        'id': 'dlc_msg',
+        'name': 'Skip DLC Unlock Messages',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
+    {
         'path': 'CUSA17416_0102/intro_skip.xdelta',
         'id': 'intro_skip',
         'name': 'Intro Skip',

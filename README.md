@@ -34,18 +34,20 @@ python .\patch.py .\eboot.bin
 Example output:
 
 ```txt
-Found Persona 5 Royal US CUSA17416 0102
+Found Persona 5 Royal US v1.02 CUSA17416 0102
 
 Available patches:
-  0505          PS4 FW 5.05 Backport
-  all_dlc       Content Enabler
-  intro_skip    Intro Skip
-  mod_support   Mod Support
-  no_trp        Disable Trophies
-  p5_save       P5 Save Bonus Enabler
-  square        Global Square Menu
-  env           ENV Test
-  zzz           Random Tests
+  0505           PS4 FW 5.05 Backport
+  all_dlc        Content Enabler
+  dlc_msg        Skip DLC Unlock Messages
+  intro_skip     Intro Skip
+  mod_support    Mod Support
+  mod_support2   Mod Support Alt
+  no_trp         Disable Trophies
+  p5_save        P5 Save Bonus Enabler
+  square         Global Square Menu
+  env            ENV Test
+  zzz            Random Tests
 ```
 
 ### Applying Patches
@@ -90,6 +92,7 @@ Tested on CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02.
 
 - *PS4 FW 5.05 Backport*
 - *Content Enabler* - Enables on-disc content
+- *Skip DLC Unlock Messages* - Especially useful when using the *Content Enabler* patch together with a mod that skips the title screen and boots directly into a field.
 - *Intro Skip* - Skips boot logos and intro movie (can still be viewed in Thieves Den)
 - *Mod Support* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
 - *Mod Support Alt* - File replacement via a `mod.cpk` file (placed in `/data/p5r/`)
