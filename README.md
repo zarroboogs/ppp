@@ -1,3 +1,4 @@
+
 # PS4 Persona Patches
 
 A set of patches for the PS4 Persona games.
@@ -8,6 +9,7 @@ A set of patches for the PS4 Persona games.
 - `python`
 - A homebrew enabled PS4
 - `eboot.bin` for the game you'd like to patch (**must be dumped in ELF format** or converted to it from a fake signed ELF, e.g. using [ps4_unfself](https://github.com/SocraticBliss/ps4_unfself))
+- `npbind.dat` and `nptitle.dat` for the game you'd like to patch
 
 ## Usage
 
@@ -73,7 +75,7 @@ Done
 
 ### Persona 5 (PS4)
 
-Tested on CUSA06638 (EU) v1.00. Requires a custom v1.01 patch (see below).
+Tested on CUSA06638 (EU) v1.00
 
 - *Content Enabler* - Enables on-disc content
 - *Intro Skip* - Skips boot logos and intro movie
@@ -88,7 +90,7 @@ Tested on CUSA06638 (EU) v1.00. Requires a custom v1.01 patch (see below).
 
 ### Persona 5 Royal
 
-Tested on CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02.
+Tested on CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
 
 - *PS4 FW 5.05 Backport*
 - *Content Enabler* - Enables on-disc content
@@ -104,9 +106,28 @@ Tested on CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02.
   - Maps all `field/qr/*.dds` to `field/qr/qr_tex0000.dds` (file doesn't exist by default)
   - Maps all `test/zeal_tex/*.dds` to `test/zeal_tex/tex_0000.dds` (file doesn't exist by default)
 
-## Building a Custom Persona 5 (PS4) Patch
+### Persona 3 Dancing / Persona 5 Dancing
 
-1. Dump the following files from your copy of Persona 5:
+Tested on CUSA12636 (US) v1.00, CUSA12380 (US) v1.00
+
+- *Intro Skip* - Skips boot logos and intro movie
+- *Mod Support* - File replacement via a `mod.cpk` file:
+  - Installed with pkg - `data/mod.cpk`
+  - Installed with ftp - `/data/p5d/mod.cpk` (or `/data/p3d/mod.cpk`)
+
+  Both of these will work together (the ftp method cpk has the highest priority)
+- *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
+- *Disable Trophies* - Prevents the game from unlocking trophies
+
+## Building a Custom PS4 Patch
+
+The [pkg](pkg) directory in this repo contains some templates you can use to build a custom patch package.
+
+You may need to edit some files to match your version (e.g. `param.sfo`, `patch.gp4`, etc.)
+
+The general process is:
+
+1. Dump the following files from your game:
 
    ```txt
    sce_sys/npbind.dat
@@ -114,30 +135,18 @@ Tested on CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02.
    eboot.bin
    ```
 
-   Place `npbind.dat` and `nptitle.dat` in the provided `patch/sce_sys/` directory.
+   Replace the dummy `npbind.dat` and `nptitle.dat` in the provided `patch/sce_sys/` directory.
 
 2. Apply the patches you'd like to use to `eboot.bin`.
 
-   **Note that the mod support patch is required for loading `mod.cpk`.**
+   Place the patched `eboot.bin` in the provided `patch/` directory.
 
-   Place the patched `eboot.bin` in the provided `patch/USRDIR/` directory.
+3. If you've applied a mod support patch, package the mods you'd like to use into a `mod.cpk` file using your preferred method.
 
-3. Package the mods you'd like to use into a `mod.cpk` file using your preferred method.
+   Replace the dummy `mod.cpk` in the in the provided `patch/` directory.
 
-   Place `mod.cpk` in the `patch/USRDIR/` directory (an empty dummy `mod.cpk` is provided in the patch directory, replace it with your own).
+   Alternatively, if you're using the ftp `mod.cpk` method, upload `mod.cpk` to the correct location in the filesystem.
 
-4. Edit `patch.gp4` and set `app_path` to point to your base Persona 5 package.
+4. Edit `patch.gp4` and set `app_path` to point to your base game package.
 
-5. Check that your final `patch/` directory structure matches the following listing:
-
-   ```txt
-   patch/sce_sys/changeinfo/changeinfo.xml
-   patch/sce_sys/npbind.dat
-   patch/sce_sys/nptitle.dat
-   patch/sce_sys/param.sfo
-   patch/USRDIR/mod.cpk
-   patch/eboot.bin
-   patch.gp4
-   ```
-
-6. Build the patch package with your preferred tool, install it and boot the game.
+5. Build the patch package with your preferred tool, install it and boot the game.
