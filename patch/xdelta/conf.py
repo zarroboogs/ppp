@@ -24,6 +24,22 @@ games = [
             { 'offset': 0x18110E7, 'value': b'CUSA17419' },
         ],
     },
+    {
+        'name': 'Persona 5: Dancing in Starlight US v1.00',
+        'title': 'CUSA12380',
+        'version': '0100',
+        'check': [
+            { 'offset': 0x4241E0, 'value': b'CUSA12380' },
+        ],
+    },
+    {
+        'name': 'Persona 3: Dancing in Moonlight US v1.00',
+        'title': 'CUSA12636',
+        'version': '0100',
+        'check': [
+            { 'offset': 0x4211E0, 'value': b'CUSA12636' },
+        ],
+    },
 ]
 
 patches = [
@@ -74,6 +90,12 @@ patches = [
         'id': 'zzz',
         'name': 'Random Tests',
         'games': { 'CUSA06638' : '0100' },
+    },
+    {
+        'path': 'CUSA17416_0102/60fps.xdelta',
+        'id': '60fps',
+        'name': '60 FPS Toggle',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
         'path': 'CUSA17416_0102/0505.xdelta',
@@ -140,5 +162,53 @@ patches = [
         'id': 'zzz',
         'name': 'Random Tests',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
+    {
+        'path': 'CUSA12380_0100/intro_skip.xdelta',
+        'id': 'intro_skip',
+        'name': 'Intro Skip',
+        'games' : { 'CUSA12380' : '0100' },
+    },
+    {
+        'path': 'CUSA12380_0100/mod.xdelta',
+        'id': 'mod',
+        'name': 'Mod Support',
+        'games' : { 'CUSA12380' : '0100' },
+    },
+    {
+        'path': 'CUSA12380_0100/no_trp.xdelta',
+        'id': 'no_trp',
+        'name': 'Disable Trophies',
+        'games' : { 'CUSA12380' : '0100' },
+    },
+    {
+        'path': 'CUSA12380_0100/overlay.xdelta',
+        'id': 'overlay',
+        'name': 'Disable Screenshot Overlay',
+        'games' : { 'CUSA12380' : '0100' },
+    },
+    {
+        'path': 'CUSA12636_0100/intro_skip.xdelta',
+        'id': 'intro_skip',
+        'name': 'Intro Skip',
+        'games' : { 'CUSA12636' : '0100' },
+    },
+    {
+        'path': 'CUSA12636_0100/mod.xdelta',
+        'id': 'mod',
+        'name': 'Mod Support',
+        'games' : { 'CUSA12636' : '0100' },
+    },
+    {
+        'path': 'CUSA12636_0100/no_trp.xdelta',
+        'id': 'no_trp',
+        'name': 'Disable Trophies',
+        'games' : { 'CUSA12636' : '0100' },
+    },
+    {
+        'path': 'CUSA12636_0100/overlay.xdelta',
+        'id': 'overlay',
+        'name': 'Disable Screenshot Overlay',
+        'games' : { 'CUSA12636' : '0100' },
     },
 ]
