@@ -40,6 +40,14 @@ games = [
             { 'offset': 0x4211E0, 'value': b'CUSA12636' },
         ],
     },
+    {
+        'name': 'Persona 4: Dancing All Night EU v1.00',
+        'title': 'CUSA12811',
+        'version': '0100',
+        'check': [
+            { 'offset': 0x3BEBE0, 'value': b'CUSA12811' },
+        ],
+    },
 ]
 
 patches = [
@@ -91,6 +99,9 @@ patches = [
         'name': 'Random Tests',
         'games': { 'CUSA06638' : '0100' },
     },
+    
+    
+    
     {
         'path': 'CUSA17416_0102/60fps.xdelta',
         'id': '60fps',
@@ -163,6 +174,9 @@ patches = [
         'name': 'Random Tests',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
+    
+    
+    
     {
         'path': 'CUSA12380_0100/intro_skip.xdelta',
         'id': 'intro_skip',
@@ -187,6 +201,9 @@ patches = [
         'name': 'Disable Screenshot Overlay',
         'games' : { 'CUSA12380' : '0100' },
     },
+    
+    
+    
     {
         'path': 'CUSA12636_0100/intro_skip.xdelta',
         'id': 'intro_skip',
@@ -210,5 +227,26 @@ patches = [
         'id': 'overlay',
         'name': 'Disable Screenshot Overlay',
         'games' : { 'CUSA12636' : '0100' },
+    },
+    
+    
+    
+    {
+        'path': 'CUSA12811_0100/intro_skip.xdelta',
+        'id': 'intro_skip',
+        'name': 'Intro Skip',
+        'games' : { 'CUSA12811' : '0100' },
+    },
+    {
+        'path': 'CUSA12811_0100/mod.xdelta',
+        'id': 'mod',
+        'name': 'Mod Support',
+        'games' : { 'CUSA12811' : '0100' },
+    },
+    {
+        'path': 'CUSA12811_0100/no_trp.xdelta',
+        'id': 'no_trp',
+        'name': 'Disable Trophies',
+        'games' : { 'CUSA12811' : '0100' },
     },
 ]

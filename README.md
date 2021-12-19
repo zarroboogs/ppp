@@ -6,9 +6,13 @@ A set of patches for the PS4 Persona games.
 ## Requirements
 
 - [`xdelta`](https://github.com/jmacd/xdelta-gpl) in `PATH`
+
 - `python`
+
 - A homebrew enabled PS4
+
 - `eboot.bin` for the game you'd like to patch (**must be dumped in ELF format** or converted to it from a fake signed ELF, e.g. using [ps4_unfself](https://github.com/SocraticBliss/ps4_unfself))
+
 - `npbind.dat` and `nptitle.dat` for the game you'd like to patch
 
 ## Usage
@@ -78,14 +82,23 @@ Done
 Tested on CUSA06638 (EU) v1.00
 
 - *Content Enabler* - Enables on-disc content
+
 - *Intro Skip* - Skips boot logos and intro movie
+
 - *Mod Support* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
+
 - *Mod Support Alt* - File replacement via a `mod.cpk` file (placed in `/data/p5/`)
+
 - *Disable Trophies* - Prevents the game from unlocking trophies
+
 - *Global Square Menu* - Enables the square menu globally (e.g. in Velvet Room or during events or game sections which disable it)
+
 - *ENV Tests* - Maps all `env/env*.ENV` to `env/env0000_000_000.ENV`
+
 - *Random Tests*
+
   - Maps all `field/qr/*.dds` to `field/qr/qr_tex0000.dds` (file doesn't exist by default)
+
   - Maps all `test/zeal_tex/*.dds` to `test/zeal_tex/tex_0000.dds` (file doesn't exist by default)
 
 ### Persona 5 Royal
@@ -93,30 +106,81 @@ Tested on CUSA06638 (EU) v1.00
 Tested on CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
 
 - *PS4 FW 5.05 Backport*
+
 - *Content Enabler* - Enables on-disc content
+
 - *Skip DLC Unlock Messages* - Especially useful when using the *Content Enabler* patch together with a mod that skips the title screen and boots directly into a field.
+
 - *Intro Skip* - Skips boot logos and intro movie (can still be viewed in Thieves Den)
+
 - *Mod Support* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
+
 - *Mod Support Alt* - File replacement via a `mod.cpk` file (placed in `/data/p5r/`)
+
 - *Disable Trophies* - Prevents the game from unlocking trophies
+
 - *P5 Save Bonus Enabler* - Enables P5 save bonus without P5 saves present on system
+
 - *Global Square Menu* - Enables the square menu globally (e.g. in Thieves Den and in Velvet Room or during events or game sections which disable it)
+
 - *ENV Tests* - Maps all `env/env*.ENV` to `env/env0000_000_000.ENV`
+
 - *Random Tests*
+
   - Maps all `field/qr/*.dds` to `field/qr/qr_tex0000.dds` (file doesn't exist by default)
+
   - Maps all `test/zeal_tex/*.dds` to `test/zeal_tex/tex_0000.dds` (file doesn't exist by default)
 
-### Persona 3 Dancing / Persona 5 Dancing
+### Persona 5 Dancing
 
-Tested on CUSA12636 (US) v1.00, CUSA12380 (US) v1.00
+Tested on CUSA12380 (US) v1.00
 
 - *Intro Skip* - Skips boot logos and intro movie
+
 - *Mod Support* - File replacement via a `mod.cpk` file:
+
   - Installed with pkg - `data/mod.cpk`
-  - Installed with ftp - `/data/p5d/mod.cpk` (or `/data/p3d/mod.cpk`)
+
+  - Installed with ftp - `/data/p5d/mod.cpk`
 
   Both of these will work together (the ftp method cpk has the highest priority)
+
 - *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
+
+- *Disable Trophies* - Prevents the game from unlocking trophies
+
+### Persona 3 Dancing
+
+Tested on CUSA12636 (US) v1.00
+
+- *Intro Skip* - Skips boot logos and intro movie
+
+- *Mod Support* - File replacement via a `mod.cpk` file:
+
+  - Installed with pkg - `data/mod.cpk`
+
+  - Installed with ftp - `/data/p3d/mod.cpk`
+
+  Both of these will work together (the ftp method cpk has the highest priority)
+
+- *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
+
+- *Disable Trophies* - Prevents the game from unlocking trophies
+
+### Persona 4 Dancing
+
+Tested on CUSA12811 (EU) v1.00
+
+- *Intro Skip* - Skips boot logos and intro movie
+
+- *Mod Support* - File replacement via a `mod.cpk` file:
+
+  - Installed with pkg - `data/mod.cpk`
+
+  - Installed with ftp - `/data/p4d/mod.cpk`
+
+  Both of these will work together (the ftp method cpk has the highest priority)
+
 - *Disable Trophies* - Prevents the game from unlocking trophies
 
 ## Building a Custom PS4 Patch
@@ -138,6 +202,8 @@ The general process is:
    Replace the dummy `npbind.dat` and `nptitle.dat` in the provided `patch/sce_sys/` directory.
 
 2. Apply the patches you'd like to use to `eboot.bin`.
+
+   If `eboot.bin` is not in ELF format, you must convert it to ELF (e.g. using [ps4_unfself](https://github.com/SocraticBliss/ps4_unfself)) before applying patches.
 
    Place the patched `eboot.bin` in the provided `patch/` directory.
 
