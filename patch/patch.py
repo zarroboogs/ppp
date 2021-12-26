@@ -73,9 +73,10 @@ def main():
     # print available patches if no patch input is given
     if not args.patch:
         print("Available patches:")
-        w = max([len(gp) for gp in game_patches])
-        for gp in game_patches:
-            print(f"  {gp:{w + 2}} {game_patches[gp]['name']}")
+        w = max([len(pid) for pid in game_patches])
+        for pid, pdata in game_patches.items():
+            if pdata.get('display', True):
+                print(f"  {pid:{w + 2}} {pdata['name']}")
         print("")
         exit(0)
 

@@ -1,6 +1,10 @@
-eboot*.bin
-eboot*.elf
+
+*eboot*.bin
+*eboot*.elf
+
 tmp.xdelta
+
 *.pkg
+
 npbind.dat
 nptitle.dat
