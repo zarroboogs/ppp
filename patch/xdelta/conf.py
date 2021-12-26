@@ -201,6 +201,13 @@ patches = [
         'name': 'Disable Screenshot Overlay',
         'games' : { 'CUSA12380' : '0100' },
     },
+    {
+        'path': 'CUSA12380_0100/psvc.xdelta',
+        'id': 'psvc',
+        'name': 'PSV Content Compat.',
+        'games' : { 'CUSA12380' : '0100' },
+        'display' : False,
+    },
     
     
     
@@ -227,6 +234,13 @@ patches = [
         'id': 'overlay',
         'name': 'Disable Screenshot Overlay',
         'games' : { 'CUSA12636' : '0100' },
+    },
+    {
+        'path': 'CUSA12636_0100/psvc.xdelta',
+        'id': 'psvc',
+        'name': 'PSV Content Compat.',
+        'games' : { 'CUSA12636' : '0100' },
+        'display' : False,
     },
     
     
