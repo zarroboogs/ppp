@@ -79,7 +79,7 @@ Done
 
 ### Persona 5 (PS4)
 
-Tested on CUSA06638 (EU) v1.00
+Tested on CUSA05877 (US) v1.00, CUSA06638 (EU) v1.00
 
 - *Content Enabler* - Enables on-disc content
 

@@ -1,6 +1,14 @@
 
 games = [
     {
+        'name': 'Persona 5 (PS4) US v1.00',
+        'title': 'CUSA05877',
+        'version': '0100',
+        'check': [
+            { 'offset': 0x10CAE67, 'value': b'CUSA05877' },
+        ],
+    },
+    {
         'name': 'Persona 5 (PS4) EU v1.00',
         'title': 'CUSA06638',
         'version': '0100',
@@ -51,6 +59,48 @@ games = [
 ]
 
 patches = [
+    {
+        'path': 'CUSA05877_0100/intro_skip.xdelta',
+        'id': 'intro_skip',
+        'name': 'Intro Skip',
+        'games': { 'CUSA05877' : '0100' },
+    },
+    {
+        'path': 'CUSA05877_0100/mod_support.xdelta',
+        'id': 'mod_support',
+        'name': 'Mod Support',
+        'games': { 'CUSA05877' : '0100' },
+    },
+    {
+        'path': 'CUSA05877_0100/mod_support2.xdelta',
+        'id': 'mod_support2',
+        'name': 'Mod Support Alt',
+        'games': { 'CUSA05877' : '0100' },
+    },
+    {
+        'path': 'CUSA05877_0100/no_trp.xdelta',
+        'id': 'no_trp',
+        'name': 'Disable Trophies',
+        'games': { 'CUSA05877' : '0100' },
+    },
+    {
+        'path': 'CUSA05877_0100/square.xdelta',
+        'id': 'square',
+        'name': 'Global Square Menu',
+        'games': { 'CUSA05877' : '0100' },
+    },
+    {
+        'path': 'CUSA05877_0100/env.xdelta',
+        'id': 'env',
+        'name': 'ENV Test',
+        'games': { 'CUSA05877' : '0100' },
+    },
+    {
+        'path': 'CUSA05877_0100/zzz.xdelta',
+        'id': 'zzz',
+        'name': 'Random Tests',
+        'games': { 'CUSA05877' : '0100' },
+    },
     {
         'path': 'CUSA06638_0100/all_dlc.xdelta',
         'id': 'all_dlc',
