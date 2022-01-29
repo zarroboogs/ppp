@@ -84,6 +84,12 @@ patches = [
         'games': { 'CUSA05877' : '0100' },
     },
     {
+        'path': 'CUSA05877_0100/share_button.xdelta',
+        'id': 'share_button',
+        'name': 'Enable Share Button',
+        'games': { 'CUSA05877' : '0100' },
+    },
+    {
         'path': 'CUSA05877_0100/square.xdelta',
         'id': 'square',
         'name': 'Global Square Menu',
@@ -129,6 +135,12 @@ patches = [
         'path': 'CUSA06638_0100/no_trp.xdelta',
         'id': 'no_trp',
         'name': 'Disable Trophies',
+        'games': { 'CUSA06638' : '0100' },
+    },
+    {
+        'path': 'CUSA06638_0100/share_button.xdelta',
+        'id': 'share_button',
+        'name': 'Enable Share Button',
         'games': { 'CUSA06638' : '0100' },
     },
     {
