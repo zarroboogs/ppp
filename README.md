@@ -93,7 +93,7 @@ Done
 
 ### Persona 5 (PS4)
 
-For on CUSA05877 (US) v1.00, CUSA06638 (EU) v1.00
+For CUSA05877 (US) v1.00, CUSA06638 (EU) v1.00
 
 - *Content Enabler* - Enables on-disc content
 - *Intro Skip* - Skips boot logos and intro movie
