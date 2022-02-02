@@ -51,6 +51,7 @@ Available patches:
   mod_support2   Mod Support Alt
   no_trp         Disable Trophies
   p5_save        P5 Save Bonus Enabler
+  share_button   Enable Share Button
   square         Global Square Menu
   env            ENV Test
   zzz            Random Tests
@@ -79,7 +80,7 @@ Done
 
 ### Persona 5 (PS4)
 
-Tested on CUSA06638 (EU) v1.00
+Tested on CUSA05877 (US) v1.00, CUSA06638 (EU) v1.00
 
 - *Content Enabler* - Enables on-disc content
 
@@ -90,6 +91,8 @@ Tested on CUSA06638 (EU) v1.00
 - *Mod Support Alt* - File replacement via a `mod.cpk` file (placed in `/data/p5/`)
 
 - *Disable Trophies* - Prevents the game from unlocking trophies
+
+- *Enable Share Button* - Enables video recording and screenshots using share button
 
 - *Global Square Menu* - Enables the square menu globally (e.g. in Velvet Room or during events or game sections which disable it)
 
