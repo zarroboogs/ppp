@@ -107,6 +107,9 @@ patches = [
         'name': 'Random Tests',
         'games': { 'CUSA05877' : '0100' },
     },
+
+
+
     {
         'path': 'CUSA06638_0100/all_dlc.xdelta',
         'id': 'all_dlc',
@@ -161,9 +164,9 @@ patches = [
         'name': 'Random Tests',
         'games': { 'CUSA06638' : '0100' },
     },
-    
-    
-    
+
+
+
     {
         'path': 'CUSA17416_0102/60fps.xdelta',
         'id': '60fps',
@@ -219,6 +222,12 @@ patches = [
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
+        'path': 'CUSA17416_0102/share_button.xdelta',
+        'id': 'share_button',
+        'name': 'Enable Share Button',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
+    {
         'path': 'CUSA17416_0102/square.xdelta',
         'id': 'square',
         'name': 'Global Square Menu',
@@ -236,9 +245,9 @@ patches = [
         'name': 'Random Tests',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
-    
-    
-    
+
+
+
     {
         'path': 'CUSA12380_0100/intro_skip.xdelta',
         'id': 'intro_skip',
@@ -270,9 +279,9 @@ patches = [
         'games' : { 'CUSA12380' : '0100' },
         'display' : False,
     },
-    
-    
-    
+
+
+
     {
         'path': 'CUSA12636_0100/intro_skip.xdelta',
         'id': 'intro_skip',
@@ -304,9 +313,9 @@ patches = [
         'games' : { 'CUSA12636' : '0100' },
         'display' : False,
     },
-    
-    
-    
+
+
+
     {
         'path': 'CUSA12811_0100/intro_skip.xdelta',
         'id': 'intro_skip',
