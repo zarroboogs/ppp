@@ -198,15 +198,27 @@ patches = [
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
-        'path': 'CUSA17416_0102/mod_support.xdelta',
-        'id': 'mod_support',
-        'name': 'Mod Support',
+        'path': 'CUSA17416_0102/mod.xdelta',
+        'id': 'mod',
+        'name': 'Mod Support (PKG)',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
-        'path': 'CUSA17416_0102/mod_support2.xdelta',
-        'id': 'mod_support2',
-        'name': 'Mod Support Alt',
+        'path': 'CUSA17416_0102/mod_efigs.xdelta',
+        'id': 'mod_efigs',
+        'name': 'Mod Support (PKG) - EFIGS',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
+    {
+        'path': 'CUSA17416_0102/mod2.xdelta',
+        'id': 'mod2',
+        'name': 'Mod Support (FTP)',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
+    {
+        'path': 'CUSA17416_0102/mod2_efigs.xdelta',
+        'id': 'mod2_efigs',
+        'name': 'Mod Support (FTP) - EFIGS',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
@@ -245,7 +257,12 @@ patches = [
         'name': 'Random Tests',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
-
+    {
+        'path': 'CUSA17416_0102/mod3.xdelta',
+        'id': 'mod3',
+        'name': 'MOD3',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
 
 
     {
