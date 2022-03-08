@@ -168,12 +168,6 @@ patches = [
 
 
     {
-        'path': 'CUSA17416_0102/60fps.xdelta',
-        'id': '60fps',
-        'name': '60 FPS Toggle',
-        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
-    },
-    {
         'path': 'CUSA17416_0102/0505.xdelta',
         'id': '0505',
         'name': 'PS4 FW 5.05 Backport',
@@ -206,7 +200,7 @@ patches = [
     {
         'path': 'CUSA17416_0102/mod_efigs.xdelta',
         'id': 'mod_efigs',
-        'name': 'Mod Support (PKG) - EFIGS',
+        'name': 'Mod Support EFIGS (PKG)',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
@@ -218,7 +212,19 @@ patches = [
     {
         'path': 'CUSA17416_0102/mod2_efigs.xdelta',
         'id': 'mod2_efigs',
-        'name': 'Mod Support (FTP) - EFIGS',
+        'name': 'Mod Support EFIGS (FTP)',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
+    {
+        'path': 'CUSA17416_0102/mod3.xdelta',
+        'id': 'mod3',
+        'name': 'Mod Support (FTP HostFS)',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
+    {
+        'path': 'CUSA17416_0102/mod3_efigs.xdelta',
+        'id': 'mod3_efigs',
+        'name': 'Mod Support EFIGS (FTP HostFS)',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
@@ -246,23 +252,32 @@ patches = [
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
+        'path': 'CUSA17416_0102/bgm_ord.xdelta',
+        'id': 'bgm_ord',
+        'name': 'Sequential Battle BGM',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
+    {
+        'path': 'CUSA17416_0102/bgm_rnd.xdelta',
+        'id': 'bgm_rnd',
+        'name': 'Randomized Battle BGM',
+        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+    },
+    {
         'path': 'CUSA17416_0102/env.xdelta',
         'id': 'env',
         'name': 'ENV Test',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+        'display' : False,
     },
     {
         'path': 'CUSA17416_0102/zzz.xdelta',
         'id': 'zzz',
         'name': 'Random Tests',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
+        'display' : False,
     },
-    {
-        'path': 'CUSA17416_0102/mod3.xdelta',
-        'id': 'mod3',
-        'name': 'MOD3',
-        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
-    },
+
 
 
     {

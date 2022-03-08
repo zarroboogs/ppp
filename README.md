@@ -97,8 +97,8 @@ For CUSA05877 (US) v1.00, CUSA06638 (EU) v1.00
 
 - *Content Enabler* - Enables on-disc content
 - *Intro Skip* - Skips boot logos and intro movie
-- *Mod Support* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
-- *Mod Support Alt* - File replacement via a `mod.cpk` file (placed in `/data/p5/`)
+- *Mod Support (PKG)* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
+- *Mod Support (FTP)* - File replacement via a `mod.cpk` file (placed in `/data/p5/`)
 - *Disable Trophies* - Prevents the game from unlocking trophies
 - *Enable Share Button* - Enables video recording and screenshots using share button
 - *Global Square Menu* - Enables the square menu globally (e.g. in Velvet Room or during events or game sections which disable it)
@@ -115,12 +115,35 @@ For CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
 - *Content Enabler* - Enables on-disc content
 - *Skip DLC Unlock Messages* - Especially useful when using the *Content Enabler* patch together with a mod that skips the title screen and boots directly into a field.
 - *Intro Skip* - Skips boot logos and intro movie (can still be viewed in Thieves Den)
-- *Mod Support* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
-- *Mod Support Alt* - File replacement via a `mod.cpk` file (placed in `/data/p5r/`)
+- *Mod Support (PKG)* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
+- *Mod Support EFIGS (PKG)* - File replacement via system language dependent cpk files (placed in `USRDIR`, installed with pkg):
+  - `USRDIR/m.cpk` (English, always loaded - language specific cpk files below have a higher priority)
+  - `USRDIR/mF.cpk` (French)
+  - `USRDIR/mI.cpk` (Italian)
+  - `USRDIR/mG.cpk` (German)
+  - `USRDIR/mS.cpk` (Spanish)
+- *Mod Support (FTP)* - File replacement via a `mod.cpk` file (placed in `/data/p5r/`)
+- *Mod Support EFIGS (FTP)* - File replacement via system language dependent cpk files (placed in `/data/p5r/`):
+  - `/data/p5r/m.cpk` (English, always loaded - language specific cpk files below have a higher priority)
+  - `/data/p5r/mF.cpk` (French)
+  - `/data/p5r/mI.cpk` (Italian)
+  - `/data/p5r/mG.cpk` (German)
+  - `/data/p5r/mS.cpk` (Spanish)
+- *Mod Support (FTP HostFS)* - Loose file replacement (placed in `/data/p5r/bind/`)
+  > **EXPERIMENTAL** - this patch uses a debug function and might be unstable
+- *Mod Support EFIGS (FTP HostFS)* - Loose file replacement via system language dependent directories
+  > **EXPERIMENTAL** - this patch uses a debug function and might be unstable
+  - `/data/p5r/bind/` (English, always loaded - language specific directories below have a higher priority)
+  - `/data/p5r/bindF/` (French)
+  - `/data/p5r/bindI/` (Italian)
+  - `/data/p5r/bindG/` (German)
+  - `/data/p5r/bindS/` (Spanish)
 - *Disable Trophies* - Prevents the game from unlocking trophies
 - *P5 Save Bonus Enabler* - Enables P5 save bonus without P5 saves present on system
 - *Enable Share Button* - Enables video recording and screenshots using share button
 - *Global Square Menu* - Enables the square menu globally (e.g. in Thieves Den and in Velvet Room or during events or game sections which disable it)
+- *Randomized Battle BGM* - Plays a different battle BGM track regardless of equipped MC outfit
+- *Sequential Battle BGM* - Plays a different battle BGM track regardless of equipped MC outfit
 - *ENV Tests* - Maps all `env/env*.ENV` to `env/env0000_000_000.ENV`
 - *Random Tests*
   - Maps all `field/qr/*.dds` to `field/qr/qr_tex0000.dds` (file doesn't exist by default)
