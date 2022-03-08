@@ -131,7 +131,7 @@ For CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
   - `/data/p5r/mS.cpk` (Spanish)
 - *Mod Support (FTP HostFS)* - Loose file replacement (placed in `/data/p5r/bind/`)
   > **EXPERIMENTAL** - this patch uses a debug function and might be unstable
-- *Mod Support EFIGS (FTP HostFS)* - Loose file replacement via system language dependent directories
+- *Mod Support EFIGS (FTP HostFS)* - Loose file replacement via system language dependent directories:
   > **EXPERIMENTAL** - this patch uses a debug function and might be unstable
   - `/data/p5r/bind/` (English, always loaded - language specific directories below have a higher priority)
   - `/data/p5r/bindF/` (French)
