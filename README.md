@@ -129,10 +129,8 @@ For CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
   - `/data/p5r/mI.cpk` (Italian)
   - `/data/p5r/mG.cpk` (German)
   - `/data/p5r/mS.cpk` (Spanish)
-- *Mod Support (FTP HostFS)* - Loose file replacement (placed in `/data/p5r/bind/`)
-  > **EXPERIMENTAL** - this patch uses a debug function and might be unstable
-- *Mod Support EFIGS (FTP HostFS)* - Loose file replacement via system language dependent directories:
-  > **EXPERIMENTAL** - this patch uses a debug function and might be unstable
+- *Mod Support (FTP HostFS)*[^loose] - Loose file replacement (placed in `/data/p5r/bind/`)
+- *Mod Support EFIGS (FTP HostFS)*[^loose] - Loose file replacement via system language dependent directories:
   - `/data/p5r/bind/` (English, always loaded - language specific directories below have a higher priority)
   - `/data/p5r/bindF/` (French)
   - `/data/p5r/bindI/` (Italian)
@@ -154,10 +152,10 @@ For CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
 For CUSA12380 (US) v1.00
 
 - *Intro Skip* - Skips boot logos and intro movie
-- *Mod Support* - File replacement via a `mod.cpk` file:
-  - Installed with pkg - `data/mod.cpk`
-  - Installed with ftp - `/data/p5d/mod.cpk`
-  > Both files will work together (the ftp method cpk has the highest priority)
+- *Mod Support* - File replacement via (from lowest to highest load priority):
+  - A `mod.cpk` file in `data/mod.cpk` (PKG)
+  - A `mod.cpk` file in `/data/p5d/mod.cpk` (FTP)
+  - Loose files in `/data/p5d/bind` (FTP HostFS)[^loose]
 - *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
 - *Disable Trophies* - Prevents the game from unlocking trophies
 
@@ -166,10 +164,10 @@ For CUSA12380 (US) v1.00
 For CUSA12636 (US) v1.00
 
 - *Intro Skip* - Skips boot logos and intro movie
-- *Mod Support* - File replacement via a `mod.cpk` file:
-  - Installed with pkg - `data/mod.cpk`
-  - Installed with ftp - `/data/p3d/mod.cpk`
-  > Both files will work together (the ftp method cpk has the highest priority)
+- *Mod Support* - File replacement via (from lowest to highest load priority):
+  - A `mod.cpk` file in `data/mod.cpk` (PKG)
+  - A `mod.cpk` file in `/data/p3d/mod.cpk` (FTP)
+  - Loose files in `/data/p3d/bind` (FTP HostFS)[^loose]
 - *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
 - *Disable Trophies* - Prevents the game from unlocking trophies
 
@@ -178,10 +176,10 @@ For CUSA12636 (US) v1.00
 For CUSA12811 (EU) v1.00
 
 - *Intro Skip* - Skips boot logos and intro movie
-- *Mod Support* - File replacement via a `mod.cpk` file:
-  - Installed with pkg - `data/mod.cpk`
-  - Installed with ftp - `/data/p4d/mod.cpk`
-  > Both files will work together (the ftp method cpk has the highest priority)
+- *Mod Support* - File replacement via (from lowest to highest load priority):
+  - A `mod.cpk` file in `data/mod.cpk` (PKG)
+  - A `mod.cpk` file in `/data/p4d/mod.cpk` (FTP)
+  - Loose files in `/data/p4d/bind` (FTP HostFS)[^loose]
 - *Disable Trophies* - Prevents the game from unlocking trophies
 
 ## Building a Custom PS4 Patch
@@ -217,3 +215,5 @@ The general process is:
 4. Edit `patch.gp4` and set `app_path` to point to your base game package.
 
 5. Build the patch package with your preferred tool, install it and boot the game.
+
+[^loose]: Loose files are loaded via a debug function that might be unstable.

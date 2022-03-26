@@ -68,13 +68,13 @@ patches = [
     {
         'path': 'CUSA05877_0100/mod_support.xdelta',
         'id': 'mod_support',
-        'name': 'Mod Support',
+        'name': 'Mod Support (PKG)',
         'games': { 'CUSA05877' : '0100' },
     },
     {
         'path': 'CUSA05877_0100/mod_support2.xdelta',
         'id': 'mod_support2',
-        'name': 'Mod Support Alt',
+        'name': 'Mod Support (FTP)',
         'games': { 'CUSA05877' : '0100' },
     },
     {
@@ -100,12 +100,14 @@ patches = [
         'id': 'env',
         'name': 'ENV Test',
         'games': { 'CUSA05877' : '0100' },
+        'display' : False,
     },
     {
         'path': 'CUSA05877_0100/zzz.xdelta',
         'id': 'zzz',
         'name': 'Random Tests',
         'games': { 'CUSA05877' : '0100' },
+        'display' : False,
     },
 
 
@@ -125,13 +127,13 @@ patches = [
     {
         'path': 'CUSA06638_0100/mod_support.xdelta',
         'id': 'mod_support',
-        'name': 'Mod Support',
+        'name': 'Mod Support (PKG)',
         'games': { 'CUSA06638' : '0100' },
     },
     {
         'path': 'CUSA06638_0100/mod_support2.xdelta',
         'id': 'mod_support2',
-        'name': 'Mod Support Alt',
+        'name': 'Mod Support (FTP)',
         'games': { 'CUSA06638' : '0100' },
     },
     {
@@ -157,12 +159,14 @@ patches = [
         'id': 'env',
         'name': 'ENV Test',
         'games': { 'CUSA06638' : '0100' },
+        'display' : False,
     },
     {
         'path': 'CUSA06638_0100/zzz.xdelta',
         'id': 'zzz',
         'name': 'Random Tests',
         'games': { 'CUSA06638' : '0100' },
+        'display' : False,
     },
 
 
