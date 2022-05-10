@@ -96,13 +96,21 @@ Done
 For CUSA05877 (US) v1.00, CUSA06638 (EU) v1.00
 
 - *Content Enabler* - Enables on-disc content
+
 - *Intro Skip* - Skips boot logos and intro movie
-- *Mod Support (PKG)* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
-- *Mod Support (FTP)* - File replacement via a `mod.cpk` file (placed in `/data/p5/`)
+
+- *Mod Support (PKG)* - File replacement via `USRDIR/mod.cpk` (PKG)
+
+- *Mod Support (FTP)* - File replacement via `/data/p5r/mod.cpk` (FTP)
+
 - *Disable Trophies* - Prevents the game from unlocking trophies
+
 - *Enable Share Button* - Enables video recording and screenshots using share button
+
 - *Global Square Menu* - Enables the square menu globally (e.g. in Velvet Room or during events or game sections which disable it)
+
 - *ENV Tests* - Maps all `env/env*.ENV` to `env/env0000_000_000.ENV`
+
 - *Random Tests*
   - Maps all `field/qr/*.dds` to `field/qr/qr_tex0000.dds` (file doesn't exist by default)
   - Maps all `test/zeal_tex/*.dds` to `test/zeal_tex/tex_0000.dds` (file doesn't exist by default)
@@ -112,37 +120,43 @@ For CUSA05877 (US) v1.00, CUSA06638 (EU) v1.00
 For CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
 
 - *PS4 FW 5.05 Backport*
+
 - *Content Enabler* - Enables on-disc content
+
 - *Skip DLC Unlock Messages* - Especially useful when using the *Content Enabler* patch together with a mod that skips the title screen and boots directly into a field.
+
 - *Intro Skip* - Skips boot logos and intro movie (can still be viewed in Thieves Den)
-- *Mod Support (PKG)* - File replacement via a `mod.cpk` file (placed in `USRDIR`, installed with pkg)
-- *Mod Support EFIGS (PKG)* - File replacement via system language dependent cpk files (placed in `USRDIR`, installed with pkg):
-  - `USRDIR/m.cpk` (English, always loaded - language specific cpk files below have a higher priority)
-  - `USRDIR/mF.cpk` (French)
-  - `USRDIR/mI.cpk` (Italian)
-  - `USRDIR/mG.cpk` (German)
-  - `USRDIR/mS.cpk` (Spanish)
-- *Mod Support (FTP)* - File replacement via a `mod.cpk` file (placed in `/data/p5r/`)
-- *Mod Support EFIGS (FTP)* - File replacement via system language dependent cpk files (placed in `/data/p5r/`):
-  - `/data/p5r/m.cpk` (English, always loaded - language specific cpk files below have a higher priority)
-  - `/data/p5r/mF.cpk` (French)
-  - `/data/p5r/mI.cpk` (Italian)
-  - `/data/p5r/mG.cpk` (German)
-  - `/data/p5r/mS.cpk` (Spanish)
-- *Mod Support (FTP HostFS)*[^loose] - Loose file replacement (placed in `/data/p5r/bind/`)
-- *Mod Support EFIGS (FTP HostFS)*[^loose] - Loose file replacement via system language dependent directories:
-  - `/data/p5r/bind/` (English, always loaded - language specific directories below have a higher priority)
-  - `/data/p5r/bindF/` (French)
-  - `/data/p5r/bindI/` (Italian)
-  - `/data/p5r/bindG/` (German)
-  - `/data/p5r/bindS/` (Spanish)
+
+- *Mod Support*
+
+  File replacement via (from lowest to highest load priority):
+  - `USRDIR/mod.cpk` (PKG)
+  - `/data/p5r/mod.cpk` (FTP)
+  - Loose files in `/data/p5r/bind/` (FTP HostFS)[^loose]
+
+  When using a language other than English, the game will also try to load (from lowest to highest priority):
+  - `USRDIR/mod_X.cpk` (PKG)
+  - `/data/p5r/mod_X.cpk` (FTP)
+  - Loose files in `/data/p5r/bind_X/` (FTP HostFS)[^loose]
+
+  Replace `X` with `F`, `I`, `G`, or `S` for French, Italian, German or Spanish respectively.
+
+  Language specific files have a higher load priority than base English files.
+
 - *Disable Trophies* - Prevents the game from unlocking trophies
+
 - *P5 Save Bonus Enabler* - Enables P5 save bonus without P5 saves present on system
+
 - *Enable Share Button* - Enables video recording and screenshots using share button
+
 - *Global Square Menu* - Enables the square menu globally (e.g. in Thieves Den and in Velvet Room or during events or game sections which disable it)
+
 - *Randomized Battle BGM* - Plays a different battle BGM track regardless of equipped MC outfit
+
 - *Sequential Battle BGM* - Plays a different battle BGM track regardless of equipped MC outfit
+
 - *ENV Tests* - Maps all `env/env*.ENV` to `env/env0000_000_000.ENV`
+
 - *Random Tests*
   - Maps all `field/qr/*.dds` to `field/qr/qr_tex0000.dds` (file doesn't exist by default)
   - Maps all `test/zeal_tex/*.dds` to `test/zeal_tex/tex_0000.dds` (file doesn't exist by default)
@@ -152,11 +166,14 @@ For CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
 For CUSA12380 (US) v1.00
 
 - *Intro Skip* - Skips boot logos and intro movie
+
 - *Mod Support* - File replacement via (from lowest to highest load priority):
-  - A `mod.cpk` file in `data/mod.cpk` (PKG)
-  - A `mod.cpk` file in `/data/p5d/mod.cpk` (FTP)
-  - Loose files in `/data/p5d/bind` (FTP HostFS)[^loose]
+  - `data/mod.cpk` (PKG)
+  - `/data/p5d/mod.cpk` (FTP)
+  - Loose files in `/data/p5d/bind/` (FTP HostFS)[^loose]
+
 - *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
+
 - *Disable Trophies* - Prevents the game from unlocking trophies
 
 ### Persona 3 Dancing
@@ -164,11 +181,14 @@ For CUSA12380 (US) v1.00
 For CUSA12636 (US) v1.00
 
 - *Intro Skip* - Skips boot logos and intro movie
+
 - *Mod Support* - File replacement via (from lowest to highest load priority):
-  - A `mod.cpk` file in `data/mod.cpk` (PKG)
-  - A `mod.cpk` file in `/data/p3d/mod.cpk` (FTP)
-  - Loose files in `/data/p3d/bind` (FTP HostFS)[^loose]
+  - `data/mod.cpk` (PKG)
+  - `/data/p3d/mod.cpk` (FTP)
+  - Loose files in `/data/p3d/bind/` (FTP HostFS)[^loose]
+
 - *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
+
 - *Disable Trophies* - Prevents the game from unlocking trophies
 
 ### Persona 4 Dancing
@@ -176,10 +196,12 @@ For CUSA12636 (US) v1.00
 For CUSA12811 (EU) v1.00
 
 - *Intro Skip* - Skips boot logos and intro movie
+
 - *Mod Support* - File replacement via (from lowest to highest load priority):
-  - A `mod.cpk` file in `data/mod.cpk` (PKG)
-  - A `mod.cpk` file in `/data/p4d/mod.cpk` (FTP)
-  - Loose files in `/data/p4d/bind` (FTP HostFS)[^loose]
+  - `data/mod.cpk` (PKG)
+  - `/data/p4d/mod.cpk` (FTP)
+  - Loose files in `/data/p4d/bind/` (FTP HostFS)[^loose]
+
 - *Disable Trophies* - Prevents the game from unlocking trophies
 
 ## Building a Custom PS4 Patch

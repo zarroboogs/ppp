@@ -198,37 +198,7 @@ patches = [
     {
         'path': 'CUSA17416_0102/mod.xdelta',
         'id': 'mod',
-        'name': 'Mod Support (PKG)',
-        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
-    },
-    {
-        'path': 'CUSA17416_0102/mod_efigs.xdelta',
-        'id': 'mod_efigs',
-        'name': 'Mod Support EFIGS (PKG)',
-        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
-    },
-    {
-        'path': 'CUSA17416_0102/mod2.xdelta',
-        'id': 'mod2',
-        'name': 'Mod Support (FTP)',
-        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
-    },
-    {
-        'path': 'CUSA17416_0102/mod2_efigs.xdelta',
-        'id': 'mod2_efigs',
-        'name': 'Mod Support EFIGS (FTP)',
-        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
-    },
-    {
-        'path': 'CUSA17416_0102/mod3.xdelta',
-        'id': 'mod3',
-        'name': 'Mod Support (FTP HostFS)',
-        'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
-    },
-    {
-        'path': 'CUSA17416_0102/mod3_efigs.xdelta',
-        'id': 'mod3_efigs',
-        'name': 'Mod Support EFIGS (FTP HostFS)',
+        'name': 'Mod Support',
         'games' : { 'CUSA17416' : '0102', 'CUSA17419' : '0102' },
     },
     {
