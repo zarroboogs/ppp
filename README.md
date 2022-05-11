@@ -101,7 +101,7 @@ For CUSA05877 (US) v1.00, CUSA06638 (EU) v1.00
 
 - *Mod Support (PKG)* - File replacement via `USRDIR/mod.cpk` (PKG)
 
-- *Mod Support (FTP)* - File replacement via `/data/p5r/mod.cpk` (FTP)
+- *Mod Support (FTP)* - File replacement via `/data/p5/mod.cpk` (FTP)
 
 - *Disable Trophies* - Prevents the game from unlocking trophies
 
