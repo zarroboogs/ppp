@@ -1,7 +1,7 @@
 
-# PS4 Persona Patches
+# PS Persona Patches
 
-A set of patches for the PS4 Persona games.
+A set of patches for the PSV/PS4 Persona games.
 
 ## Contents
 
@@ -16,6 +16,7 @@ A set of patches for the PS4 Persona games.
   - [Persona 3 Dancing](#persona-3-dancing)
   - [Persona 4 Dancing](#persona-4-dancing)
 - [Building a Custom PS4 Patch](#building-a-custom-ps4-patch)
+- [Patching PS Vita Games](#patching-ps-vita-games)
 
 ## Requirements
 
@@ -129,15 +130,21 @@ For CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
 
 - *Mod Support*
 
-  File replacement via (from lowest to highest load priority):
-  - `USRDIR/mod.cpk` (PKG)
-  - `/data/p5r/mod.cpk` (FTP)
-  - Loose files in `/data/p5r/bind/` (FTP HostFS)[^loose]
+  File replacement via (from highest to lowest load priority):
+  - Loose files in `/data/p5r/bind/`[^loose]
+  - `/data/p5r/mod.cpk`
+  - `/data/p5r/mod1.cpk`
+  - `/data/p5r/mod2.cpk`
+  - `/data/p5r/mod3.cpk`
+  - `USRDIR/mod.cpk` (in pkg)
 
-  When using a language other than English, the game will also try to load (from lowest to highest priority):
-  - `USRDIR/mod_X.cpk` (PKG)
-  - `/data/p5r/mod_X.cpk` (FTP)
-  - Loose files in `/data/p5r/bind_X/` (FTP HostFS)[^loose]
+  When using a language other than English, the game will also try to load (from highest to lowest load priority):
+  - Loose files in `/data/p5r/bind_X/`[^loose]
+  - `/data/p5r/mod_X.cpk`
+  - `/data/p5r/mod1_X.cpk`
+  - `/data/p5r/mod2_X.cpk`
+  - `/data/p5r/mod3_X.cpk`
+  - `USRDIR/mod_X.cpk` (in pkg)
 
   Replace `X` with `F`, `I`, `G`, or `S` for French, Italian, German or Spanish respectively.
 
@@ -163,14 +170,17 @@ For CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
 
 ### Persona 5 Dancing
 
-For CUSA12380 (US) v1.00
+For CUSA12380 (US) v1.00, PCSE01275 (US) v1.00
 
 - *Intro Skip* - Skips boot logos and intro movie
 
-- *Mod Support* - File replacement via (from lowest to highest load priority):
-  - `data/mod.cpk` (PKG)
-  - `/data/p5d/mod.cpk` (FTP)
-  - Loose files in `/data/p5d/bind/` (FTP HostFS)[^loose]
+- *Mod Support* - File replacement via (from highest to lowest load priority):
+  - Loose files in `/data/p5d/bind/`[^loose]
+  - `/data/p5d/mod.cpk`
+  - `/data/p5d/mod1.cpk`
+  - `/data/p5d/mod2.cpk`
+  - `/data/p5d/mod3.cpk`
+  - `data/mod.cpk` (in pkg)
 
 - *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
 
@@ -178,14 +188,17 @@ For CUSA12380 (US) v1.00
 
 ### Persona 3 Dancing
 
-For CUSA12636 (US) v1.00
+For CUSA12636 (US) v1.00, PCSE01274 (US) v1.00
 
 - *Intro Skip* - Skips boot logos and intro movie
 
-- *Mod Support* - File replacement via (from lowest to highest load priority):
-  - `data/mod.cpk` (PKG)
-  - `/data/p3d/mod.cpk` (FTP)
-  - Loose files in `/data/p3d/bind/` (FTP HostFS)[^loose]
+- *Mod Support* - File replacement via (from highest to lowest load priority):
+  - Loose files in `/data/p3d/bind/`[^loose]
+  - `/data/p3d/mod.cpk`
+  - `/data/p3d/mod1.cpk`
+  - `/data/p3d/mod2.cpk`
+  - `/data/p3d/mod3.cpk`
+  - `data/mod.cpk` (in pkg)
 
 - *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
 
@@ -193,14 +206,17 @@ For CUSA12636 (US) v1.00
 
 ### Persona 4 Dancing
 
-For CUSA12811 (EU) v1.00
+For CUSA12811 (EU) v1.00,  PCSE00764 (US) v1.01
 
 - *Intro Skip* - Skips boot logos and intro movie
 
-- *Mod Support* - File replacement via (from lowest to highest load priority):
-  - `data/mod.cpk` (PKG)
-  - `/data/p4d/mod.cpk` (FTP)
-  - Loose files in `/data/p4d/bind/` (FTP HostFS)[^loose]
+- *Mod Support* - File replacement via (from highest to lowest load priority):
+  - Loose files in `/data/p4d/bind/`[^loose]
+  - `/data/p4d/mod.cpk`
+  - `/data/p4d/mod1.cpk`
+  - `/data/p4d/mod2.cpk`
+  - `/data/p4d/mod3.cpk`
+  - `data/mod.cpk` (in pkg)
 
 - *Disable Trophies* - Prevents the game from unlocking trophies
 
@@ -238,4 +254,23 @@ The general process is:
 
 5. Build the patch package with your preferred tool, install it and boot the game.
 
+## Patching PS Vita Games
+
+1. Dump a **decrypted** `eboot.bin` and `eboot.elf` for your game:
+   - On PS Vita, use [FAGDec][1] and decrypt to SELF **and** ELF.
+   - On PC, using Vita3K:
+     - Install the game (and any game patches) - the decrypted `eboot.bin` should then be in the game folder.
+     - Convert `eboot.bin` from SELF to ELF format using [`vita-unmake-self`][2].
+2. Patch `eboot.elf`.
+3. Backup the original `eboot.bin`.
+4. Inject the patched `eboot.elf` back into the original `eboot.bin` using [`vita-elf-inject`][3].
+5. Replace the original `eboot.bin`:
+   - On PS Vita, use [rePatch][4].
+   - On PC, using Vita3K, overwrite the original `eboot.bin`.
+
 [^loose]: Loose files are loaded via a debug function that might be unstable.
+
+[1]:https://github.com/CelesteBlue-dev/PSVita-RE-tools/tree/master/FAGDec/build
+[2]:https://github.com/CelesteBlue-dev/PSVita-RE-tools/tree/master/vita-unmake-fself/release
+[3]:https://github.com/CelesteBlue-dev/PSVita-RE-tools/tree/master/elf_injector/build
+[4]:https://github.com/dots-tb/rePatch-reDux0

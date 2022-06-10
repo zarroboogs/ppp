@@ -33,7 +33,7 @@ games = [
         ],
     },
     {
-        'name': 'Persona 5: Dancing in Starlight US v1.00',
+        'name': 'Persona 5: Dancing in Starlight (PS4) US v1.00',
         'title': 'CUSA12380',
         'version': '0100',
         'check': [
@@ -41,7 +41,7 @@ games = [
         ],
     },
     {
-        'name': 'Persona 3: Dancing in Moonlight US v1.00',
+        'name': 'Persona 3: Dancing in Moonlight (PS4) US v1.00',
         'title': 'CUSA12636',
         'version': '0100',
         'check': [
@@ -49,11 +49,35 @@ games = [
         ],
     },
     {
-        'name': 'Persona 4: Dancing All Night EU v1.00',
+        'name': 'Persona 4: Dancing All Night (PS4) EU v1.00',
         'title': 'CUSA12811',
         'version': '0100',
         'check': [
             { 'offset': 0x3BEBE0, 'value': b'CUSA12811' },
+        ],
+    },
+    {
+        'name': 'Persona 5: Dancing in Starlight (PSV) US v1.00',
+        'title': 'PCSE01275',
+        'version': '0100',
+        'check': [
+            { 'offset': 0x2F6107, 'value': b'PCSE01275' },
+        ],
+    },
+    {
+        'name': 'Persona 3: Dancing in Moonlight (PSV) US v1.00',
+        'title': 'PCSE01274',
+        'version': '0100',
+        'check': [
+            { 'offset': 0x2F2503, 'value': b'PCSE01274' },
+        ],
+    },
+    {
+        'name': 'Persona 4: Dancing All Night (PSV) US v1.01',
+        'title': 'PCSE00764',
+        'version': '0101',
+        'check': [
+            { 'offset': 0x256F07, 'value': b'PCSE00764' },
         ],
     },
 ]
@@ -339,5 +363,89 @@ patches = [
         'id': 'no_trp',
         'name': 'Disable Trophies',
         'games' : { 'CUSA12811' : '0100' },
+    },
+
+
+
+    {
+        'path': 'PCSE01275_0100/intro_skip.xdelta',
+        'id': 'intro_skip',
+        'name': 'Intro Skip',
+        'games' : { 'PCSE01275' : '0100' },
+    },
+    {
+        'path': 'PCSE01275_0100/mod.xdelta',
+        'id': 'mod',
+        'name': 'Mod Support',
+        'games' : { 'PCSE01275' : '0100' },
+    },
+    {
+        'path': 'PCSE01275_0100/auto.xdelta',
+        'id': 'auto',
+        'name': 'Auto Play',
+        'games' : { 'PCSE01275' : '0100' },
+        'display' : False,
+    },
+    {
+        'path': 'PCSE01275_0100/no_trp.xdelta',
+        'id': 'no_trp',
+        'name': 'Disable Trophies',
+        'games' : { 'PCSE01275' : '0100' },
+    },
+
+
+
+    {
+        'path': 'PCSE01274_0100/intro_skip.xdelta',
+        'id': 'intro_skip',
+        'name': 'Intro Skip',
+        'games' : { 'PCSE01274' : '0100' },
+    },
+    {
+        'path': 'PCSE01274_0100/mod.xdelta',
+        'id': 'mod',
+        'name': 'Mod Support',
+        'games' : { 'PCSE01274' : '0100' },
+    },
+    {
+        'path': 'PCSE01274_0100/auto.xdelta',
+        'id': 'auto',
+        'name': 'Auto Play',
+        'games' : { 'PCSE01274' : '0100' },
+        'display' : False,
+    },
+    {
+        'path': 'PCSE01274_0100/no_trp.xdelta',
+        'id': 'no_trp',
+        'name': 'Disable Trophies',
+        'games' : { 'PCSE01274' : '0100' },
+    },
+
+
+
+    {
+        'path': 'PCSE00764_0101/intro_skip.xdelta',
+        'id': 'intro_skip',
+        'name': 'Intro Skip',
+        'games' : { 'PCSE00764' : '0101' },
+    },
+    {
+        'path': 'PCSE00764_0101/mod.xdelta',
+        'id': 'mod',
+        'name': 'Mod Support',
+        'games' : { 'PCSE00764' : '0101' },
+    },
+    {
+        'path': 'PCSE00764_0101/auto.xdelta',
+        'id': 'auto',
+        'name': 'Auto Play',
+        'games' : { 'PCSE00764' : '0101' },
+        'display' : False,
+    },
+    {
+        'path': 'PCSE00764_0101/no_trp.xdelta',
+        'id': 'no_trp',
+        'name': 'Disable Trophies',
+        'games' : { 'PCSE00764' : '0101' },
     },
 ]
