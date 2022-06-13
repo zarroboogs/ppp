@@ -10,24 +10,13 @@ A set of patches for the PSV/PS4 Persona games.
   - [Listing Available Patches](#listing-available-patches)
   - [Applying Patches](#applying-patches)
 - [Available Patches](#available-patches)
-  - [Persona 5 (PS4)](#persona-5-ps4)
-  - [Persona 5 Royal](#persona-5-royal)
-  - [Persona 5 Dancing](#persona-5-dancing)
-  - [Persona 3 Dancing](#persona-3-dancing)
-  - [Persona 4 Dancing](#persona-4-dancing)
 - [Building a Custom PS4 Patch](#building-a-custom-ps4-patch)
 - [Patching PS Vita Games](#patching-ps-vita-games)
 
 ## Requirements
 
-- [`xdelta`](https://github.com/jmacd/xdelta-gpl) in `PATH`
+- [`xdelta`][xdelta_url] in `PATH`
 - Python 3
-- A homebrew enabled PS4
-- Some files from the game you'd like to patch:
-  - `eboot.bin` - **must be dumped in ELF format** or converted to it from a fake signed ELF,
-  e.g. using [ps4_unfself](https://github.com/SocraticBliss/ps4_unfself)
-  - `npbind.dat` and `nptitle.dat`
-  - When repacking a game update - all other data files that were originally included in said update (e.g. `patch2R.cpk` for P5R v1.02)
 
 ## Usage
 
@@ -57,24 +46,15 @@ Example output:
 Found Persona 5 Royal US v1.02 CUSA17416 0102
 
 Available patches:
-  0505           PS4 FW 5.05 Backport
-  all_dlc        Content Enabler
-  dlc_msg        Skip DLC Unlock Messages
-  intro_skip     Intro Skip
-  mod_support    Mod Support
-  mod_support2   Mod Support Alt
-  no_trp         Disable Trophies
-  p5_save        P5 Save Bonus Enabler
-  share_button   Enable Share Button
-  square         Global Square Menu
-  env            ENV Test
-  zzz            Random Tests
+  intro_skip   Intro Skip
+  mod          Mod Support
+  no_trp       Disable Trophies
 ```
 
 ### Applying Patches
 
 ```txt
-python .\patch.py .\eboot.bin --patch 0505 all_dlc intro_skip mod_support no_trp p5_save square
+python .\patch.py .\eboot.bin --patch intro_skip mod
 ```
 
 Example output:
@@ -86,139 +66,17 @@ Applying patches...
 
 <...>
 
-Applied 0505 all_dlc intro_skip mod_support no_trp p5_save square
+Applied intro_skip mod
 Done
 ```
 
 ## Available Patches
 
-### Persona 5 (PS4)
-
-For CUSA05877 (US) v1.00, CUSA06638 (EU) v1.00
-
-- *Content Enabler* - Enables on-disc content
-
-- *Intro Skip* - Skips boot logos and intro movie
-
-- *Mod Support (PKG)* - File replacement via `USRDIR/mod.cpk` (PKG)
-
-- *Mod Support (FTP)* - File replacement via `/data/p5/mod.cpk` (FTP)
-
-- *Disable Trophies* - Prevents the game from unlocking trophies
-
-- *Enable Share Button* - Enables video recording and screenshots using share button
-
-- *Global Square Menu* - Enables the square menu globally (e.g. in Velvet Room or during events or game sections which disable it)
-
-- *ENV Tests* - Maps all `env/env*.ENV` to `env/env0000_000_000.ENV`
-
-- *Random Tests*
-  - Maps all `field/qr/*.dds` to `field/qr/qr_tex0000.dds` (file doesn't exist by default)
-  - Maps all `test/zeal_tex/*.dds` to `test/zeal_tex/tex_0000.dds` (file doesn't exist by default)
-
-### Persona 5 Royal
-
-For CUSA17416 (US) v1.02, CUSA17419 (EU) v1.02
-
-- *PS4 FW 5.05 Backport*
-
-- *Content Enabler* - Enables on-disc content
-
-- *Skip DLC Unlock Messages* - Especially useful when using the *Content Enabler* patch together with a mod that skips the title screen and boots directly into a field.
-
-- *Intro Skip* - Skips boot logos and intro movie (can still be viewed in Thieves Den)
-
-- *Mod Support*
-
-  File replacement via (from highest to lowest load priority):
-  - Loose files in `/data/p5r/bind/`[^loose]
-  - `/data/p5r/mod.cpk`
-  - `/data/p5r/mod1.cpk`
-  - `/data/p5r/mod2.cpk`
-  - `/data/p5r/mod3.cpk`
-  - `USRDIR/mod.cpk` (in pkg)
-
-  When using a language other than English, the game will also try to load (from highest to lowest load priority):
-  - Loose files in `/data/p5r/bind_X/`[^loose]
-  - `/data/p5r/mod_X.cpk`
-  - `/data/p5r/mod1_X.cpk`
-  - `/data/p5r/mod2_X.cpk`
-  - `/data/p5r/mod3_X.cpk`
-  - `USRDIR/mod_X.cpk` (in pkg)
-
-  Replace `X` with `F`, `I`, `G`, or `S` for French, Italian, German or Spanish respectively.
-
-  Language specific files have a higher load priority than base English files.
-
-- *Disable Trophies* - Prevents the game from unlocking trophies
-
-- *P5 Save Bonus Enabler* - Enables P5 save bonus without P5 saves present on system
-
-- *Enable Share Button* - Enables video recording and screenshots using share button
-
-- *Global Square Menu* - Enables the square menu globally (e.g. in Thieves Den and in Velvet Room or during events or game sections which disable it)
-
-- *Randomized Battle BGM* - Plays a different battle BGM track regardless of equipped MC outfit
-
-- *Sequential Battle BGM* - Plays a different battle BGM track regardless of equipped MC outfit
-
-- *ENV Tests* - Maps all `env/env*.ENV` to `env/env0000_000_000.ENV`
-
-- *Random Tests*
-  - Maps all `field/qr/*.dds` to `field/qr/qr_tex0000.dds` (file doesn't exist by default)
-  - Maps all `test/zeal_tex/*.dds` to `test/zeal_tex/tex_0000.dds` (file doesn't exist by default)
-
-### Persona 5 Dancing
-
-For CUSA12380 (US) v1.00, PCSE01275 (US) v1.00
-
-- *Intro Skip* - Skips boot logos and intro movie
-
-- *Mod Support* - File replacement via (from highest to lowest load priority):
-  - Loose files in `/data/p5d/bind/`[^loose]
-  - `/data/p5d/mod.cpk`
-  - `/data/p5d/mod1.cpk`
-  - `/data/p5d/mod2.cpk`
-  - `/data/p5d/mod3.cpk`
-  - `data/mod.cpk` (in pkg)
-
-- *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
-
-- *Disable Trophies* - Prevents the game from unlocking trophies
-
-### Persona 3 Dancing
-
-For CUSA12636 (US) v1.00, PCSE01274 (US) v1.00
-
-- *Intro Skip* - Skips boot logos and intro movie
-
-- *Mod Support* - File replacement via (from highest to lowest load priority):
-  - Loose files in `/data/p3d/bind/`[^loose]
-  - `/data/p3d/mod.cpk`
-  - `/data/p3d/mod1.cpk`
-  - `/data/p3d/mod2.cpk`
-  - `/data/p3d/mod3.cpk`
-  - `data/mod.cpk` (in pkg)
-
-- *Disable Screenshot Overlay* - Removes the annoying copyright overlay from in-game screenshots
-
-- *Disable Trophies* - Prevents the game from unlocking trophies
-
-### Persona 4 Dancing
-
-For CUSA12811 (EU) v1.00,  PCSE00764 (US) v1.01
-
-- *Intro Skip* - Skips boot logos and intro movie
-
-- *Mod Support* - File replacement via (from highest to lowest load priority):
-  - Loose files in `/data/p4d/bind/`[^loose]
-  - `/data/p4d/mod.cpk`
-  - `/data/p4d/mod1.cpk`
-  - `/data/p4d/mod2.cpk`
-  - `/data/p4d/mod3.cpk`
-  - `data/mod.cpk` (in pkg)
-
-- *Disable Trophies* - Prevents the game from unlocking trophies
+- Persona 5 ([PS4][p5_ps4])
+- Persona 5 Royal ([PS4][p5r_ps4])
+- Persona 4 Dancing ([PS4][p4d_ps4]/[PSV][p4d_psv])
+- Persona 3 Dancing ([PS4][p3d_ps4]/[PSV][p3d_psv])
+- Persona 5 Dancing ([PS4][p5d_ps4]/[PSV][p5d_psv])
 
 ## Building a Custom PS4 Patch
 
@@ -240,7 +98,7 @@ The general process is:
 
 2. Apply the patches you'd like to use to `eboot.bin`.
 
-   If `eboot.bin` is not in ELF format, you must convert it to ELF (e.g. using [ps4_unfself](https://github.com/SocraticBliss/ps4_unfself)) before applying patches.
+   If `eboot.bin` is not in ELF format, you must convert it to ELF (e.g. using [ps4_unfself][ps4_unfself_url] before applying patches.
 
    Place the patched `eboot.bin` in the provided `patch/` directory.
 
@@ -248,29 +106,48 @@ The general process is:
 
    Replace the dummy `mod.cpk` in the in the provided `patch/` directory.
 
-   Alternatively, if you're using the ftp `mod.cpk` method, upload `mod.cpk` to the correct location in the filesystem.
+   Alternatively, if you're using the ftp `mod.cpk` method, upload `mod.cpk` to the correct location on the PS4 filesystem.
 
 4. Edit `patch.gp4` and set `app_path` to point to your base game package.
 
-5. Build the patch package with your preferred tool, install it and boot the game.
+5. Build the patch package with your preferred tool. When repacking a game update, make sure to also include all other data files that were originally included in said update (e.g. `patch2R.cpk` for P5R v1.02).
+
+6. Install the package on your PS4 and boot the game.
 
 ## Patching PS Vita Games
 
 1. Dump a **decrypted** `eboot.bin` and `eboot.elf` for your game:
-   - On PS Vita, use [FAGDec][1] and decrypt to SELF **and** ELF.
+
+   - On PS Vita, use [FAGDec][fagdec_url] and decrypt to SELF **and** ELF.
    - On PC, using Vita3K:
      - Install the game (and any game patches) - the decrypted `eboot.bin` should then be in the game folder.
-     - Convert `eboot.bin` from SELF to ELF format using [`vita-unmake-self`][2].
+     - Convert `eboot.bin` from SELF to ELF format using [`vita-unmake-self`][vufself_url].
+
 2. Patch `eboot.elf`.
+
 3. Backup the original `eboot.bin`.
-4. Inject the patched `eboot.elf` back into the original `eboot.bin` using [`vita-elf-inject`][3].
+
+4. Inject the patched `eboot.elf` back into the original `eboot.bin` using [`vita-elf-inject`][veinject_url].
+
 5. Replace the original `eboot.bin`:
-   - On PS Vita, use [rePatch][4].
+
+   - On PS Vita, use [rePatch][repatch_url].
    - On PC, using Vita3K, overwrite the original `eboot.bin`.
 
-[^loose]: Loose files are loaded via a debug function that might be unstable.
+[xdelta_url]: https://github.com/jmacd/xdelta-gpl
 
-[1]:https://github.com/CelesteBlue-dev/PSVita-RE-tools/tree/master/FAGDec/build
-[2]:https://github.com/CelesteBlue-dev/PSVita-RE-tools/tree/master/vita-unmake-fself/release
-[3]:https://github.com/CelesteBlue-dev/PSVita-RE-tools/tree/master/elf_injector/build
-[4]:https://github.com/dots-tb/rePatch-reDux0
+[p5_ps4]: docs/Persona_5_PS4.md
+[p5r_ps4]: docs/Persona_5_PS4.md
+[p4d_ps4]: docs/Persona_4_Dancing_PS4.md
+[p4d_psv]: docs/Persona_4_Dancing_PSV.md
+[p3d_ps4]: docs/Persona_3_Dancing_PS4.md
+[p3d_psv]: docs/Persona_3_Dancing_PSV.md
+[p5d_ps4]: docs/Persona_5_Dancing_PS4.md
+[p5d_psv]: docs/Persona_5_Dancing_PSV.md
+
+[ps4_unfself_url]: https://github.com/SocraticBliss/ps4_unfself
+
+[fagdec_url]: https://github.com/CelesteBlue-dev/PSVita-RE-tools/tree/master/FAGDec/build
+[vufself_url]: https://github.com/CelesteBlue-dev/PSVita-RE-tools/tree/master/vita-unmake-fself/release
+[veinject_url]: https://github.com/CelesteBlue-dev/PSVita-RE-tools/tree/master/elf_injector/build
+[repatch_url]: https://github.com/dots-tb/rePatch-reDux0
